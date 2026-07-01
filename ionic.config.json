@@ -1,0 +1,7 @@
+{
+  "name": "prestamov",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
