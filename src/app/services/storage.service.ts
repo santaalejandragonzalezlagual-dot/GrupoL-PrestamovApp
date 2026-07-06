@@ -7,22 +7,19 @@ import { Storage } from '@ionic/storage-angular';
 export class StorageService {
   private _storage: Storage | null = null;
 
-  constructor(private storage: Storage) {
-    this.initStorage();
-  }
+  // Quitamos la llamada directa del constructor para evitar conflictos de tiempo
+  constructor(private storage: Storage) {}
 
-  // Inicializa la base de datos local
   async initStorage() {
+    if (this._storage) return; // Si ya está encendida, no hace nada
     const storage = await this.storage.create();
     this._storage = storage;
   }
 
-  // Guarda un elemento con una llave específica
   async guardar(key: string, value: any) {
     await this._storage?.set(key, value);
   }
 
-  // Obtiene un elemento guardado
   async obtener(key: string): Promise<any> {
     return await this._storage?.get(key);
   }

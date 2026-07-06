@@ -9,7 +9,7 @@ import { ToastController } from '@ionic/angular';
   standalone : false
 })
 export class Tab2Page {
-  // Variables limpias sin tildes para el formulario HTML
+  
   montoPrestamo!: number;
   tasaAnual!: number;
   plazoMeses!: number;

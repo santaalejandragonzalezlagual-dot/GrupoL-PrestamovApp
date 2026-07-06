@@ -27,14 +27,18 @@ export class PrestamoService {
   private historial: Prestamo[] = [];
 
   constructor(private storageService: StorageService) {
-    this.cargarHistorial();
+    // Llamamos a un método para encender y cargar todo en orden
+    this.inicializarServicio();
   }
 
-  // Método matemático para calcular la amortización fija mensual
+  // Esto Asegura que la BD esté lista antes de leer los datos
+  async inicializarServicio() {
+    await this.storageService.initStorage();
+    await this.cargarHistorial();
+  }
+
   calcularPrestamo(monto: number, tasaAnual: number, meses: number): Prestamo {
     const tasaMensual = (tasaAnual / 12) / 100;
-    
-    // Fórmula del sistema francés: Cuota = [P * r] / [1 - (1+r)^-n]
     const cuotaMensual = (monto * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -meses));
     const totalPagar = cuotaMensual * meses;
     
@@ -67,18 +71,15 @@ export class PrestamoService {
     };
   }
 
-  // Guarda un nuevo préstamo en el almacenamiento local
   async guardarPrestamo(nuevoPrestamo: Prestamo) {
-    this.historial.unshift(nuevoPrestamo); // Añade al inicio de la lista
+    this.historial.unshift(nuevoPrestamo);
     await this.storageService.guardar('historial_prestamos', this.historial);
   }
 
-  // Devuelve los préstamos que ya tenemos guardados
   getHistorial(): Prestamo[] {
     return this.historial;
   }
 
-  // Lee el almacenamiento al iniciar la app
   async cargarHistorial() {
     const datos = await this.storageService.obtener('historial_prestamos');
     if (datos) {
