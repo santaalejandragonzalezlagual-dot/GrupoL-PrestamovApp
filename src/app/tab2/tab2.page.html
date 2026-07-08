@@ -1,17 +1,88 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Simulador Financiero</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <!-- Formulario de Entrada de Datos -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Calcula tu Préstamo</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="stacked">Monto Solicitado (RD$)</ion-label>
+        <ion-input type="number" placeholder="Ej. 50000" [(ngModel)]="montoPrestamo"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="stacked">Tasa de Interés Anual (%)</ion-label>
+        <ion-input type="number" placeholder="Ej. 12" [(ngModel)]="tasaAnual"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="stacked">Plazo de Financiamiento (Meses)</ion-label>
+        <ion-input type="number" placeholder="Ej. 12" [(ngModel)]="plazoMeses"></ion-input>
+      </ion-item>
+
+      <div class="ion-margin-top">
+        <ion-button expand="block" (click)="hacerSimulacion()">
+          <ion-icon name="calculator-outline" slot="start"></ion-icon>
+          Calcular Cuotas
+        </ion-button>
+        <ion-button expand="block" color="light" (click)="limpiarFormulario()" *ngIf="prestamoCalculado">
+          Limpiar
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Bloque de Resultados del Análisis -->
+  <div *ngIf="prestamoCalculado">
+    
+    <ion-card color="secondary">
+      <ion-card-content class="ion-text-center">
+        <h2>Cuota Mensual Estimada</h2>
+        <h1 style="font-size: 2rem; font-weight: bold;">RD$ {{ prestamoCalculado.cuotaMensual }}</h1>
+        <p>Total a pagar en intereses + capital: RD$ {{ prestamoCalculado.totalPagar }}</p>
+        <ion-button fill="outline" color="light" expand="block" class="ion-margin-top" (click)="guardarSimulacion()">
+          <ion-icon name="save-outline" slot="start"></ion-icon>
+          Guardar este Registro
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Tabla Desplegable con las Amortizaciones -->
+    <h3 class="ion-padding-start">Tabla de Amortización Francesa</h3>
+    
+    <ion-card>
+      <div class="table-responsive">
+        <table class="amortization-table">
+          <thead>
+            <tr>
+              <th>Mes</th>
+              <th>Cuota</th>
+              <th>Interés</th>
+              <th>Capital</th>
+              <th>Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let fila of prestamoCalculado.tabla">
+              <td><strong>#{{ fila.numero }}</strong></td>
+              <td>${{ fila.cuota }}</td>
+              <td>${{ fila.interes }}</td>
+              <td>${{ fila.capital }}</td>
+              <td>${{ fila.balance }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ion-card>
+
+  </div>
+
 </ion-content>
