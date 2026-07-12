@@ -1,4 +1,12 @@
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="onRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Desliza para actualizar"
+      refreshingSpinner="crescent"
+      refreshingText="Actualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
 
   <!-- Header azul -->
   <div class="welcome">

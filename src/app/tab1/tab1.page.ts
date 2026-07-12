@@ -36,4 +36,18 @@ export class Tab1Page implements OnInit {
       }
     });
   }
+   onRefresh(event: any) {
+    this.apiService.getTasaCambio().subscribe({
+      next: (data) => {
+        this.tasaCambio = data;
+        this.errorTasa = false;
+        event.target.complete();
+      },
+      error: (err) => {
+        console.error('Error al refrescar tasa de cambio:', err);
+        this.errorTasa = true;
+        event.target.complete();
+      }
+    });
+  }
 }
