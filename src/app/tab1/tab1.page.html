@@ -13,10 +13,33 @@
         <span class="badge-dot"></span>
       </ion-button>
 
-      <div class="avatar">UAPA</div>
+      <div class="avatar">GL</div>
     </div>
   </div>
+<!-- Tasa de cambio del día -->
+  <div class="exchange-card">
+    <div *ngIf="cargandoTasa" class="exchange-loading">
+      <ion-spinner name="crescent"></ion-spinner>
+      <span>Cargando tasa del día...</span>
+    </div>
 
+    <div *ngIf="!cargandoTasa && errorTasa" class="exchange-error">
+      <ion-icon name="alert-circle-outline"></ion-icon>
+      <span>No se pudo cargar la tasa de cambio.</span>
+    </div>
+
+    <div *ngIf="!cargandoTasa && !errorTasa && tasaCambio" class="exchange-content">
+      <div class="exchange-icon">
+        <ion-icon name="cash-outline"></ion-icon>
+      </div>
+      <div class="exchange-info">
+        <p class="label">Tasa del dólar hoy</p>
+        <h3>RD$ {{ tasaCambio.dop | number:'1.2-2' }}</h3>
+      </div>
+      <div class="exchange-date">{{ tasaCambio.fecha }}</div>
+    </div>
+  </div>
+  
   <!-- Tarjeta de préstamo activo -->
   <ion-card class="loan-card">
     <ion-card-content>

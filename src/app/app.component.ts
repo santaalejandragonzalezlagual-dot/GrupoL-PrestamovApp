@@ -13,6 +13,8 @@ import {
   arrowBackOutline,
   checkmarkCircle,
   timeOutline,
+  cashOutline,
+  alertCircleOutline,
 } from 'ionicons/icons';
 
 @Component({
@@ -36,6 +38,8 @@ export class AppComponent {
       'arrow-back-outline': arrowBackOutline,
       'checkmark-circle': checkmarkCircle,
       'time-outline': timeOutline,
+      'cash-outline': cashOutline,
+      'alert-circle-outline': alertCircleOutline,
     });
   }
 }
