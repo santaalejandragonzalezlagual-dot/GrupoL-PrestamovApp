@@ -1,0 +1,109 @@
+.login-content {
+  --background: #f5f7fb;
+}
+
+.login-wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 24px;
+}
+
+// ===== MARCA / LOGO =====
+.brand {
+  text-align: center;
+  margin-bottom: 40px;
+
+  .brand-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    border-radius: 18px;
+    background: #165dff;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #6b7280;
+  }
+}
+
+// ===== FORMULARIO =====
+.login-form {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-shadow: 0 8px 24px rgba(22, 93, 255, 0.1);
+
+  h2 {
+    margin: 0 0 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  .custom-input {
+    --background: #f5f7fb;
+    --border-radius: 12px;
+    --padding-start: 14px;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+
+    ion-label {
+      font-size: 12px;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    ion-input {
+      --color: #111827;
+      font-size: 15px;
+    }
+  }
+
+  .error-msg {
+    color: #ef4444;
+    font-size: 13px;
+    margin: -4px 0 12px;
+  }
+
+  .login-btn {
+    --background: #165dff;
+    --background-activated: #0e4bd1;
+    --border-radius: 12px;
+    --box-shadow: 0 6px 16px rgba(22, 93, 255, 0.3);
+    font-weight: 600;
+    height: 48px;
+    margin-top: 4px;
+
+    ion-spinner {
+      color: #fff;
+    }
+  }
+
+  .google-btn {
+    --border-radius: 12px;
+    --border-color: #e5e7eb;
+    --color: #6b7280;
+    margin-top: 12px;
+    height: 46px;
+    font-weight: 500;
+  }
+}
