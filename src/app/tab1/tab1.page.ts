@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { TasaCambio } from '../models/prestamo.model';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -14,7 +15,10 @@ export class Tab1Page implements OnInit {
   cargandoTasa: boolean = true;
   errorTasa: boolean = false;
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+  private apiService: ApiService,
+  private alertCtrl: AlertController
+) {}
 
   ngOnInit() {
     this.cargarTasaCambio();
@@ -49,5 +53,13 @@ export class Tab1Page implements OnInit {
         event.target.complete();
       }
     });
+  }
+  async onAccionRapida(accion: string) {
+    const alert = await this.alertCtrl.create({
+      header: 'Próximamente',
+      message: 'Esta función estará disponible pronto.',
+      buttons: ['Entendido']
+    });
+    await alert.present();
   }
 }

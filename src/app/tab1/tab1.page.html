@@ -83,13 +83,13 @@
     </ion-card-content>
   </ion-card>
 
-  <!-- Acciones rápidas -->
+<!-- Acciones rápidas -->
   <h3 class="section-title">Acciones rápidas</h3>
 
   <ion-grid class="actions-grid">
     <ion-row>
-      <ion-col size="6">
-        <div class="action-card">
+      <ion-col size="4">
+        <div class="action-card" (click)="onAccionRapida('nuevo-prestamo')">
           <div class="action-icon blue">
             <ion-icon name="document-text-outline"></ion-icon>
           </div>
@@ -97,8 +97,8 @@
         </div>
       </ion-col>
 
-      <ion-col size="6">
-        <div class="action-card">
+      <ion-col size="4">
+        <div class="action-card" (click)="onAccionRapida('estado-solicitud')">
           <div class="action-icon green">
             <ion-icon name="trending-up-outline"></ion-icon>
           </div>
@@ -106,21 +106,12 @@
         </div>
       </ion-col>
 
-      <ion-col size="6">
-        <div class="action-card">
+      <ion-col size="4">
+        <div class="action-card" (click)="onAccionRapida('consultar-datos')">
           <div class="action-icon purple">
-            <ion-icon name="calendar-outline"></ion-icon>
+            <ion-icon name="search-outline"></ion-icon>
           </div>
-          <p>Mi Préstamo</p>
-        </div>
-      </ion-col>
-
-      <ion-col size="6">
-        <div class="action-card">
-          <div class="action-icon orange">
-            <ion-icon name="business-outline"></ion-icon>
-          </div>
-          <p>Sucursales</p>
+          <p>Consulta Crediticia</p>
         </div>
       </ion-col>
     </ion-row>
