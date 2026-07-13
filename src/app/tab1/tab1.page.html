@@ -1,5 +1,4 @@
 <ion-content [fullscreen]="true">
-<<<<<<< Updated upstream
   <ion-refresher slot="fixed" (ionRefresh)="onRefresh($event)">
     <ion-refresher-content
       pullingIcon="chevron-down-circle-outline"
@@ -8,8 +7,6 @@
       refreshingText="Actualizando...">
     </ion-refresher-content>
   </ion-refresher>
-=======
->>>>>>> Stashed changes
 
   <!-- Header azul -->
   <div class="welcome">
@@ -24,7 +21,6 @@
         <span class="badge-dot"></span>
       </ion-button>
 
-<<<<<<< Updated upstream
       <div class="avatar">GL</div>
     </div>
   </div>
@@ -52,12 +48,6 @@
     </div>
   </div>
   
-=======
-      <div class="avatar">UAPA</div>
-    </div>
-  </div>
-
->>>>>>> Stashed changes
   <!-- Tarjeta de préstamo activo -->
   <ion-card class="loan-card">
     <ion-card-content>
@@ -93,36 +83,22 @@
     </ion-card-content>
   </ion-card>
 
-<<<<<<< Updated upstream
 <!-- Acciones rápidas -->
-=======
-  <!-- Acciones rápidas -->
->>>>>>> Stashed changes
   <h3 class="section-title">Acciones rápidas</h3>
 
   <ion-grid class="actions-grid">
     <ion-row>
-<<<<<<< Updated upstream
       <ion-col size="4">
         <div class="action-card" (click)="onAccionRapida('nuevo-prestamo')">
-=======
-      <ion-col size="6">
-        <div class="action-card">
->>>>>>> Stashed changes
           <div class="action-icon blue">
             <ion-icon name="document-text-outline"></ion-icon>
           </div>
-          <p>Nuevo Préstamo</p>
+          <p>Nuevo Préstamo</p> //llamar formulario
         </div>
       </ion-col>
 
-<<<<<<< Updated upstream
       <ion-col size="4">
         <div class="action-card" (click)="onAccionRapida('estado-solicitud')">
-=======
-      <ion-col size="6">
-        <div class="action-card">
->>>>>>> Stashed changes
           <div class="action-icon green">
             <ion-icon name="trending-up-outline"></ion-icon>
           </div>
@@ -130,30 +106,12 @@
         </div>
       </ion-col>
 
-<<<<<<< Updated upstream
       <ion-col size="4">
         <div class="action-card" (click)="onAccionRapida('consultar-datos')">
           <div class="action-icon purple">
             <ion-icon name="search-outline"></ion-icon>
           </div>
           <p>Consulta Crediticia</p>
-=======
-      <ion-col size="6">
-        <div class="action-card">
-          <div class="action-icon purple">
-            <ion-icon name="calendar-outline"></ion-icon>
-          </div>
-          <p>Mi Préstamo</p>
-        </div>
-      </ion-col>
-
-      <ion-col size="6">
-        <div class="action-card">
-          <div class="action-icon orange">
-            <ion-icon name="business-outline"></ion-icon>
-          </div>
-          <p>Sucursales</p>
->>>>>>> Stashed changes
         </div>
       </ion-col>
     </ion-row>
