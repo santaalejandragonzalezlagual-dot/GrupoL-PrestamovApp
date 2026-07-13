@@ -1,17 +1,201 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<<<<<<< Updated upstream
+  <ion-refresher slot="fixed" (ionRefresh)="onRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Desliza para actualizar"
+      refreshingSpinner="crescent"
+      refreshingText="Actualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
+=======
+>>>>>>> Stashed changes
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- Header azul -->
+  <div class="welcome">
+    <div class="welcome-text">
+      <h2>Buenos días,</h2>
+      <h1>GRUPO L</h1>
+    </div>
+
+    <div class="welcome-actions">
+      <ion-button fill="clear" class="bell-btn">
+        <ion-icon name="notifications-outline"></ion-icon>
+        <span class="badge-dot"></span>
+      </ion-button>
+
+<<<<<<< Updated upstream
+      <div class="avatar">GL</div>
+    </div>
+  </div>
+<!-- Tasa de cambio del día -->
+  <div class="exchange-card">
+    <div *ngIf="cargandoTasa" class="exchange-loading">
+      <ion-spinner name="crescent"></ion-spinner>
+      <span>Cargando tasa del día...</span>
+    </div>
+
+    <div *ngIf="!cargandoTasa && errorTasa" class="exchange-error">
+      <ion-icon name="alert-circle-outline"></ion-icon>
+      <span>No se pudo cargar la tasa de cambio.</span>
+    </div>
+
+    <div *ngIf="!cargandoTasa && !errorTasa && tasaCambio" class="exchange-content">
+      <div class="exchange-icon">
+        <ion-icon name="cash-outline"></ion-icon>
+      </div>
+      <div class="exchange-info">
+        <p class="label">Tasa del dólar hoy</p>
+        <h3>RD$ {{ tasaCambio.dop | number:'1.2-2' }}</h3>
+      </div>
+      <div class="exchange-date">{{ tasaCambio.fecha }}</div>
+    </div>
+  </div>
+  
+=======
+      <div class="avatar">UAPA</div>
+    </div>
+  </div>
+
+>>>>>>> Stashed changes
+  <!-- Tarjeta de préstamo activo -->
+  <ion-card class="loan-card">
+    <ion-card-content>
+      <div class="loan-top">
+        <div>
+          <p class="label">PRÉSTAMO ACTIVO</p>
+          <h2>RD$150,000.00</h2>
+          <p class="status"><span class="dot"></span> Al día</p>
+        </div>
+        <div class="icon-badge">
+          <ion-icon name="card-outline"></ion-icon>
+        </div>
+      </div>
+
+      <div class="progress-row">
+        <span>Pagado</span>
+        <span>12 / 36 cuotas</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 33%;"></div>
+      </div>
+
+      <div class="next-payment">
+        <div>
+          <p class="label">Próxima cuota</p>
+          <p class="amount">RD$4,250.00</p>
+        </div>
+        <div class="due">
+          <p class="label">Vence</p>
+          <p class="date">15 Jul 2026</p>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+<<<<<<< Updated upstream
+<!-- Acciones rápidas -->
+=======
+  <!-- Acciones rápidas -->
+>>>>>>> Stashed changes
+  <h3 class="section-title">Acciones rápidas</h3>
+
+  <ion-grid class="actions-grid">
+    <ion-row>
+<<<<<<< Updated upstream
+      <ion-col size="4">
+        <div class="action-card" (click)="onAccionRapida('nuevo-prestamo')">
+=======
+      <ion-col size="6">
+        <div class="action-card">
+>>>>>>> Stashed changes
+          <div class="action-icon blue">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </div>
+          <p>Nuevo Préstamo</p>
+        </div>
+      </ion-col>
+
+<<<<<<< Updated upstream
+      <ion-col size="4">
+        <div class="action-card" (click)="onAccionRapida('estado-solicitud')">
+=======
+      <ion-col size="6">
+        <div class="action-card">
+>>>>>>> Stashed changes
+          <div class="action-icon green">
+            <ion-icon name="trending-up-outline"></ion-icon>
+          </div>
+          <p>Estado Solicitud</p>
+        </div>
+      </ion-col>
+
+<<<<<<< Updated upstream
+      <ion-col size="4">
+        <div class="action-card" (click)="onAccionRapida('consultar-datos')">
+          <div class="action-icon purple">
+            <ion-icon name="search-outline"></ion-icon>
+          </div>
+          <p>Consulta Crediticia</p>
+=======
+      <ion-col size="6">
+        <div class="action-card">
+          <div class="action-icon purple">
+            <ion-icon name="calendar-outline"></ion-icon>
+          </div>
+          <p>Mi Préstamo</p>
+        </div>
+      </ion-col>
+
+      <ion-col size="6">
+        <div class="action-card">
+          <div class="action-icon orange">
+            <ion-icon name="business-outline"></ion-icon>
+          </div>
+          <p>Sucursales</p>
+>>>>>>> Stashed changes
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Resumen: total pagado / saldo restante -->
+  <ion-grid class="summary-grid">
+    <ion-row>
+      <ion-col size="6">
+        <div class="summary-card">
+          <p class="label">Total pagado</p>
+          <p class="value green">RD$51,000.00</p>
+          <p class="sub">12 cuotas</p>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div class="summary-card">
+          <p class="label">Saldo restante</p>
+          <p class="value blue">RD$99,000.00</p>
+          <p class="sub">24 cuotas</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Últimos movimientos -->
+  <div class="movements-header">
+    <h3 class="section-title">Últimos movimientos</h3>
+    <a class="see-all">Ver todo</a>
+  </div>
+
+  <ion-list class="movements-list" lines="none">
+    <ion-item>
+      <div class="movement-icon" slot="start">
+        <ion-icon name="card-outline"></ion-icon>
+      </div>
+      <ion-label>
+        <h4>Cuota junio</h4>
+        <p>15 Jun 2026</p>
+      </ion-label>
+      <div slot="end" class="movement-amount">RD$4,250.00</div>
+    </ion-item>
+  </ion-list>
+
 </ion-content>

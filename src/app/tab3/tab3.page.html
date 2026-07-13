@@ -6,12 +6,12 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
-  <!-- Estado 1: Cuando el historial está vacío -->
-  <div *ngIf="historialPrestamos.length === 0" class="ion-text-center ion-padding-top" style="margin-top: 20%;">
-    <ion-icon name="folder-open-outline" style="font-size: 5rem; color: var(--ion-color-medium);"></ion-icon>
-    <h3 style="color: var(--ion-color-dark);">No hay registros guardados</h3>
-    <p style="color: var(--ion-color-medium);">Las simulaciones que guardes en la pestaña del Simulador aparecerán listadas aquí.</p>
-  </div>
+ <!-- Estado 1: Cuando el historial está vacío -->
+<div *ngIf="historialPrestamos.length === 0" class="vacio-container ion-text-center">
+  <ion-icon name="folder-open-outline"></ion-icon>
+  <h3>No hay registros guardados</h3>
+  <p>Las simulaciones que guardes en la pestaña del Simulador aparecerán listadas aquí.</p>
+</div>
 
   <!-- Estado 2: Lista de préstamos guardados -->
   <div *ngIf="historialPrestamos.length > 0">

@@ -1,0 +1,451 @@
+ion-content {
+  --background: #f5f7fb;
+}
+
+// ===== HEADER =====
+.welcome {
+  background: #165dff;
+<<<<<<< Updated upstream
+  padding: 40px 20px 20px;
+=======
+  padding: 24px 20px 20px;
+>>>>>>> Stashed changes
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .welcome-text {
+    h2 {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    h1 {
+      margin: 4px 0 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+
+  .welcome-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .bell-btn {
+      position: relative;
+      --color: #fff;
+      --padding-start: 6px;
+      --padding-end: 6px;
+      margin: 0;
+      height: 36px;
+
+      ion-icon {
+        font-size: 22px;
+      }
+
+      .badge-dot {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ff9500;
+        border: 1.5px solid #165dff;
+      }
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 13px;
+    }
+  }
+}
+
+// ===== TARJETA PRÉSTAMO =====
+.loan-card {
+  margin: 16px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(22, 93, 255, 0.12);
+  border: none;
+
+  .loan-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .label {
+      font-size: 11px;
+      color: #9ca3af;
+      letter-spacing: 0.5px;
+      margin: 0 0 4px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #111827;
+      margin: 0 0 6px;
+      font-weight: 700;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #16a34a;
+      margin: 0;
+
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #16a34a;
+      }
+    }
+
+    .icon-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: #eaf1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      ion-icon {
+        color: #165dff;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .progress-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #6b7280;
+    margin: 16px 0 6px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #e5e9f2;
+    border-radius: 4px;
+    overflow: hidden;
+
+    .progress-fill {
+      height: 100%;
+      background: #165dff;
+      border-radius: 4px;
+    }
+  }
+
+  .next-payment {
+    margin-top: 16px;
+    background: #f5f7fb;
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .label {
+      font-size: 11px;
+      color: #9ca3af;
+      margin: 0 0 2px;
+    }
+
+    .amount {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111827;
+      margin: 0;
+    }
+
+    .due {
+      text-align: right;
+
+      .date {
+        font-size: 14px;
+        font-weight: 600;
+        color: #f59e0b;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// ===== SECCIONES =====
+.section-title {
+  margin: 20px 16px 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+}
+
+// ===== ACCIONES RÁPIDAS =====
+.actions-grid {
+  padding: 0 8px;
+
+  ion-col {
+    padding: 6px;
+  }
+}
+
+.action-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #eef1f6;
+
+  p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    color: #374151;
+    text-align: center;
+  }
+
+  .action-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ion-icon {
+      font-size: 20px;
+    }
+
+    &.blue {
+      background: #eaf1ff;
+      ion-icon { color: #165dff; }
+    }
+    &.green {
+      background: #e8f9ee;
+      ion-icon { color: #16a34a; }
+    }
+    &.purple {
+      background: #f2ecfe;
+      ion-icon { color: #8b5cf6; }
+    }
+    &.orange {
+      background: #fff3e0;
+      ion-icon { color: #f59e0b; }
+    }
+  }
+}
+
+// ===== RESUMEN PAGOS =====
+.summary-grid {
+  padding: 0 8px;
+  margin-top: 4px;
+
+  ion-col {
+    padding: 6px;
+  }
+}
+
+.summary-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #eef1f6;
+
+  .label {
+    font-size: 12px;
+    color: #6b7280;
+    margin: 0 0 6px;
+  }
+
+  .value {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0;
+
+    &.green { color: #16a34a; }
+    &.blue { color: #165dff; }
+  }
+
+  .sub {
+    font-size: 11px;
+    color: #9ca3af;
+    margin: 4px 0 0;
+  }
+}
+
+// ===== ÚLTIMOS MOVIMIENTOS =====
+.movements-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 16px;
+
+  .section-title {
+    margin: 20px 0 12px;
+  }
+
+  .see-all {
+    font-size: 13px;
+    color: #165dff;
+    font-weight: 500;
+  }
+}
+
+.movements-list {
+  background: transparent;
+  padding: 0 16px 20px;
+
+  ion-item {
+    --background: #ffffff;
+    --border-radius: 16px;
+    --padding-start: 12px;
+    margin-bottom: 8px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+      margin: 0 0 2px;
+    }
+
+    p {
+      font-size: 12px;
+      color: #9ca3af;
+      margin: 0;
+    }
+  }
+
+  .movement-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #eaf1ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+
+    ion-icon {
+      color: #165dff;
+      font-size: 18px;
+    }
+  }
+
+  .movement-amount {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+  }
+<<<<<<< Updated upstream
+}
+// ===== TASA DE CAMBIO (estilo ticker navy translúcido) =====
+.exchange-card {
+  margin: -18px 16px 16px;
+  border-radius: 14px;
+  background: rgba(10, 30, 80, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  padding: 14px 16px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.exchange-loading,
+.exchange-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  width: 100%;
+
+  ion-spinner {
+    width: 18px;
+    height: 18px;
+    color: #fff;
+  }
+}
+
+.exchange-error {
+  color: #ffb4b4;
+
+  ion-icon {
+    font-size: 18px;
+  }
+}
+
+.exchange-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+
+  .exchange-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    ion-icon {
+      color: #fff;
+      font-size: 20px;
+    }
+  }
+
+  .exchange-info {
+    flex: 1;
+
+    .label {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 0 2px;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+    }
+  }
+
+  .exchange-date {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+=======
+>>>>>>> Stashed changes
+}

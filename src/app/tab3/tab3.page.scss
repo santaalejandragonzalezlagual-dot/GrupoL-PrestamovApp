@@ -1,0 +1,74 @@
+// Contenedor con fondo gris
+ion-content {
+  --background: #f8f9fa;
+}
+
+// Mensaje cuando no hay registros guardados
+.vacio-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30%;
+  padding: 0 20px;
+
+  ion-icon {
+    font-size: 5.5rem;
+    color: #adb5bd;
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    font-weight: 700;
+    color: #495057;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #6c757d;
+  }
+}
+
+// Tarjetas del historial de préstamos
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 16px;
+  border-left: 5px solid var(--ion-color-primary); // Línea de color al borde izquierdo
+  background: #ffffff;
+
+  ion-card-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #212529;
+  }
+
+  ion-card-subtitle {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+  }
+}
+
+// Ajustes de los íconos e ítems dentro del historial
+ion-item {
+  --padding-start: 0px;
+  --inner-padding-end: 0px;
+  margin-bottom: 4px;
+
+  ion-icon {
+    font-size: 1.3rem;
+    margin-right: 12px;
+  }
+
+  ion-label {
+    font-size: 0.95rem;
+    color: #495057;
+    
+    strong {
+      color: #212529;
+    }
+  }
+}

@@ -35,3 +35,66 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+/* ==========================================================================
+   DISEÑO MODERNO PARA LA BARRA DE PESTAÑAS (TABS) - GRUPO L
+   ========================================================================== */
+
+ion-tab-bar {
+  // Posición flotante con margen inferior para simular tarjetas de aplicaciones premium
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  
+  // Geometría y bordes
+  width: calc(100% - 32px);
+  height: 65px;
+  border-radius: 20px;
+  border: none;
+  
+  // Fondo y Sombras sutiles para darle efecto de profundidad (Elevación)
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px); // Efecto de cristal esmerilado detrás de la barra
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  
+  // Animación suave de transición
+  transition: all 0.3s ease-in-out;
+  padding: 0 10px;
+}
+
+// Estilo individual de cada pestaña (Botón)
+ion-tab-button {
+  --background: transparent;
+  --color: #a0aec0;              // Color gris elegante para pestañas inactivas
+  --color-selected: var(--ion-color-primary); // Color principal de la app cuando está activa
+  
+  font-weight: 500;
+  transition: transform 0.2s ease;
+
+  // Ajustes de tamaño y espaciado para los íconos
+  ion-icon {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+    transition: transform 0.2s ease;
+  }
+
+  ion-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
+  }
+
+  // Efecto visual dinámico cuando el usuario presiona la pestaña activa
+  &.tab-selected {
+    font-weight: 700;
+    
+    ion-icon {
+      transform: translateY(-2px) scale(1.1); // Hace que el ícono brinque sutilmente
+    }
+  }
+}
+
+// Pequeño truco: Ajustar el área de contenido para que las vistas no se corten por la barra flotante
+//ion-content {
+  //--padding-bottom: 90px !important;
+//}

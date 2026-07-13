@@ -1,0 +1,125 @@
+// Contenedor principal con fondo gris claro para resaltar las tarjetas
+ion-content {
+  --background: #f8f9fa;
+}
+
+// Estilos para la tarjeta del formulario
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+  background: #ffffff;
+
+  ion-card-title {
+    font-weight: 700;
+    color: var(--ion-color-primary);
+    font-size: 1.3rem;
+  }
+}
+
+// Estilizar las cajas de entrada (Inputs)
+ion-item {
+  --background: #f1f3f5;
+  --border-radius: 10px;
+  --padding-start: 12px;
+  margin-bottom: 12px;
+  
+  // Quita la línea fea que viene por defecto abajo del input
+  &::part(native) {
+    border-bottom: none;
+  }
+
+  ion-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 6px !important;
+  }
+
+  ion-input {
+    font-weight: 500;
+    color: #212529;
+  }
+}
+
+// Botones estilizados y modernos
+ion-button {
+  --border-radius: 12px;
+  font-weight: 600;
+  margin-top: 10px;
+  height: 48px; // Más alto para que sea más fácil de tocar en el celular
+}
+
+// Tarjeta de resultado principal (La que muestra la cuota)
+.resultado-card {
+  --background: linear-gradient(135deg, var(--ion-color-secondary) 0%, #3dc2ff 100%);
+  color: #2d6a4f; 
+  text-align: center;
+  padding: 15px 0;
+  
+
+  h2 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin: 10px 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  }
+
+  p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+  }
+}
+
+// Contenedor responsivo para la tabla de amortización
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+}
+
+// Estilos de la tabla de pagos
+.amortization-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 0.85rem;
+
+  thead {
+    background-color: var(--ion-color-primary);
+    color: white;
+    
+    th {
+      padding: 12px 8px;
+      font-weight: 600;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #e9ecef;
+      
+      &:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      td {
+        padding: 12px 8px;
+        color: #343a40;
+      }
+
+      // Resalta el número de mes
+      strong {
+        color: var(--ion-color-primary);
+      }
+    }
+  }
+}
+

@@ -1,0 +1,53 @@
+<ion-content [fullscreen]="true" class="login-content">
+
+  <div class="login-wrapper">
+
+    <!-- Logo -->
+    <div class="brand">
+      <div class="brand-icon">$</div>
+      <h1>PrestaMov</h1>
+      <p>Préstamos sin complicaciones</p>
+    </div>
+
+    <!-- Formulario -->
+    <div class="login-form">
+      <h2>Iniciar sesión</h2>
+
+      <ion-item class="custom-input" lines="none">
+        <ion-label position="stacked">Correo electrónico</ion-label>
+        <ion-input
+          type="email"
+          placeholder="ejemplo@correo.com"
+          [(ngModel)]="email">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="custom-input" lines="none">
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input
+          type="password"
+          placeholder="••••••••"
+          [(ngModel)]="password">
+        </ion-input>
+      </ion-item>
+
+      <!-- Mensaje de error -->
+      <p class="error-msg" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+      <ion-button
+        expand="block"
+        class="login-btn"
+        (click)="onLogin()"
+        [disabled]="cargando">
+        <ion-spinner *ngIf="cargando" name="crescent"></ion-spinner>
+        <span *ngIf="!cargando">Iniciar sesión</span>
+      </ion-button>
+
+      <ion-button expand="block" fill="outline" class="google-btn" disabled>
+        Continuar con Google
+      </ion-button>
+    </div>
+
+  </div>
+
+</ion-content>
