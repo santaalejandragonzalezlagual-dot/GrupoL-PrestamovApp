@@ -1,0 +1,40 @@
+ion-content {
+  --background: #f5f7fb;
+}
+
+.form-container {
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.custom-input {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #eef1f6;
+  margin-bottom: 4px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+
+  ion-label {
+    color: #4b5563 !important;
+    font-weight: 600;
+    font-size: 13px !important;
+    margin-bottom: 6px;
+  }
+
+  ion-input, ion-textarea {
+    color: #111827;
+    font-size: 16px;
+  }
+}
+
+.btn-guardar {
+  margin-top: 10px;
+  --background: #165dff;
+  --border-radius: 14px;
+  font-weight: 600;
+  height: 48px;
+}

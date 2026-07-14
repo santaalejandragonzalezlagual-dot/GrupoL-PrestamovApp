@@ -1,0 +1,62 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title>Nuevo Préstamo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrar()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="form-container">
+
+     <!-- Campo: Nombre Completo -->
+    <ion-item lines="none" class="custom-input">
+      <ion-label position="stacked">Nombre Completo</ion-label>
+      <ion-input type="text" placeholder="Ej. Juan Pérez" [(ngModel)]="prestamo.nombre"></ion-input>
+    </ion-item>
+
+    <!-- Campo: Cédula -->
+    <ion-item lines="none" class="custom-input">
+      <ion-label position="stacked">Cédula de Identidad</ion-label>
+      <ion-input type="text" placeholder="001-0000000-0" [(ngModel)]="prestamo.cedula"></ion-input>
+    </ion-item>
+
+    <!-- Campo: Dirección -->
+    <ion-item lines="none" class="custom-input">
+      <ion-label position="stacked">Dirección de Residencia</ion-label>
+      <ion-input type="text" placeholder="Calle, Número, Sector" [(ngModel)]="prestamo.direccion"></ion-input>
+    </ion-item>
+    
+    <!-- Campo: Monto -->
+    <ion-item lines="none" class="custom-input">
+      <ion-label position="stacked">Monto a solicitar ($)</ion-label>
+      <ion-input type="number" placeholder="0.00" [(ngModel)]="prestamo.monto"></ion-input>
+    </ion-item>
+
+    <!-- Campo: Cuotas -->
+    <ion-item lines="none" class="custom-input">
+      <ion-label position="stacked">Plazo (Meses)</ion-label>
+      <ion-input type="number" placeholder="Ej. 12" [(ngModel)]="prestamo.plazo"></ion-input>
+    </ion-item>
+
+    <!-- Campo: Tasa de Interés -->
+    <ion-item lines="none" class="custom-input">
+      <ion-label position="stacked">Tasa de interés mensual (%)</ion-label>
+      <ion-input type="number" placeholder="Ej. 2.5" [(ngModel)]="prestamo.interes"></ion-input>
+    </ion-item>
+
+    <!-- Campo: Notas -->
+    <ion-item lines="none" class="custom-input">
+      <ion-label position="stacked">Nota / Descripción</ion-label>
+      <ion-textarea placeholder="¿Para qué es este préstamo?" [(ngModel)]="prestamo.nota"></ion-textarea>
+    </ion-item>
+
+    <!-- Botón Guardar -->
+    <ion-button expand="block" class="btn-guardar" (click)="guardarPrestamo()">
+      <ion-icon slot="start" name="save-outline"></ion-icon>
+      Crear Préstamo
+    </ion-button>
+
+  </div>
+</ion-content>

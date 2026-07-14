@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },  {
+    path: 'nuevo-prestamo',
+    loadChildren: () => import('./pages/nuevo-prestamo/nuevo-prestamo.module').then( m => m.NuevoPrestamoPageModule)
   }
+
 ];
 
 @NgModule({

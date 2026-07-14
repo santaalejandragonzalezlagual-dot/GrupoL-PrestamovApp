@@ -89,11 +89,11 @@
   <ion-grid class="actions-grid">
     <ion-row>
       <ion-col size="4">
-        <div class="action-card" (click)="onAccionRapida('nuevo-prestamo')">
+        <div class="action-card" (click)="abrirFormularioPrestamo()">
           <div class="action-icon blue">
             <ion-icon name="document-text-outline"></ion-icon>
           </div>
-          <p>Nuevo Préstamo</p> //llamar formulario
+          <p>Nuevo Préstamo</p> 
         </div>
       </ion-col>
 
@@ -137,23 +137,22 @@
     </ion-row>
   </ion-grid>
 
-  <!-- Últimos movimientos -->
   <div class="movements-header">
-    <h3 class="section-title">Últimos movimientos</h3>
-    <a class="see-all">Ver todo</a>
-  </div>
+  <h2 class="section-title">Últimos Préstamos</h2>
+</div>
 
-  <ion-list class="movements-list" lines="none">
-    <ion-item>
-      <div class="movement-icon" slot="start">
-        <ion-icon name="card-outline"></ion-icon>
-      </div>
-      <ion-label>
-        <h4>Cuota junio</h4>
-        <p>15 Jun 2026</p>
-      </ion-label>
-      <div slot="end" class="movement-amount">RD$4,250.00</div>
-    </ion-item>
-  </ion-list>
-
-</ion-content>
+<ion-list class="movements-list">
+  <!-- Este ciclo recorre tu listaPrestamos y dibuja cada uno en pantalla -->
+  <ion-item *ngFor="let p of listaPrestamos">
+    <div class="movement-icon" slot="start">
+      <ion-icon name="cash-outline"></ion-icon>
+    </div>
+    <ion-label>
+      <h4>{{ p.nombre }}</h4>
+      <p>{{ p.detalle }}</p>
+    </ion-label>
+    <div class="movement-amount" slot="end">
+      ${{ p.monto | number:'1.2-2' }}
+    </div>
+  </ion-item>
+</ion-list>
