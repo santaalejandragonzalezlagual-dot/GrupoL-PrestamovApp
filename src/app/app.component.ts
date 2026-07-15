@@ -15,6 +15,7 @@ import {
   timeOutline,
   cashOutline,
   alertCircleOutline,
+  calculatorOutline,
 } from 'ionicons/icons';
 
 @Component({
@@ -40,6 +41,7 @@ export class AppComponent {
       'time-outline': timeOutline,
       'cash-outline': cashOutline,
       'alert-circle-outline': alertCircleOutline,
+       'calculator-outline': calculatorOutline,
     });
   }
 }

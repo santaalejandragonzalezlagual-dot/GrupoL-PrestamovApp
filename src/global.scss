@@ -41,21 +41,16 @@
    ========================================================================== */
 
 ion-tab-bar {
-  // Posición flotante con margen inferior para simular tarjetas de aplicaciones premium
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
   
-  // Geometría y bordes
-  width: calc(100% - 32px);
+  position: relative;
+  width: 100%;
   height: 65px;
-  border-radius: 20px;
-  border: none;
+  border-radius: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
   
-  // Fondo y Sombras sutiles para darle efecto de profundidad (Elevación)
+  
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px); // Efecto de cristal esmerilado detrás de la barra
+  backdrop-filter: blur(10px); // Efecto de cristal
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   
   // Animación suave de transición
@@ -94,7 +89,4 @@ ion-tab-button {
   }
 }
 
-// Pequeño truco: Ajustar el área de contenido para que las vistas no se corten por la barra flotante
-//ion-content {
-  //--padding-bottom: 90px !important;
-//}
+
