@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, AlertController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular'; // <-- 1. Importamos el Storage de Ionic
 import { NuevoPrestamoPage } from '../pages/nuevo-prestamo/nuevo-prestamo.page';
+import { ApiService } from '../services/api.service';
+import { TasaCambio } from '../models/prestamo.model';
 
 @Component({
   selector: 'app-tab1',
@@ -11,18 +13,23 @@ import { NuevoPrestamoPage } from '../pages/nuevo-prestamo/nuevo-prestamo.page';
 })
 export class Tab1Page implements OnInit {
 
-  // VARIABLES DE ANDRY (TASA DE CAMBIO)
-  cargandoTasa: boolean = false;
+  // ===== TASA DE CAMBIO (real, vía ApiService) =====
+  tasaCambio: TasaCambio | null = null;
+  cargandoTasa: boolean = true;
   errorTasa: boolean = false;
-  tasaCambio: any = { dop: 59.50, fecha: 'Hoy' };
 
-  // TU LISTA DE PRÉSTAMOS
+  // LISTA DE PRÉSTAMOS ANDRY
   listaPrestamos: any[] = [];
 
-  // 2. Inyectamos "Storage" en el constructor junto al controlador de modales
+  noticias: any[] = [];
+  cargandoNoticias: boolean = true;
+  errorNoticias: boolean = false;
+ 
   constructor(
     private modalCtrl: ModalController,
-    private storage: Storage
+    private storage: Storage,
+    private apiService: ApiService,
+    private alertCtrl: AlertController
   ) {}
 
   async ngOnInit() {
@@ -31,6 +38,58 @@ export class Tab1Page implements OnInit {
     
     // 4. Cargamos los préstamos viejos
     await this.cargarPrestamosDeIonic();
+    this.cargarTasaCambio();
+    this.cargarNoticias();
+  }
+
+// ===== TASA DE CAMBIO =====
+  cargarTasaCambio() {
+    this.cargandoTasa = true;
+    this.errorTasa = false;
+
+    this.apiService.getTasaCambio().subscribe({
+      next: (data) => {
+        this.tasaCambio = data;
+        this.cargandoTasa = false;
+      },
+      error: (err) => {
+        console.error('Error al obtener tasa de cambio:', err);
+        this.errorTasa = true;
+        this.cargandoTasa = false;
+      }
+    });
+  }
+  
+cargarNoticias() {
+  this.cargandoNoticias = true;
+  this.errorNoticias = false;
+
+  this.apiService.getNoticias().subscribe({
+    next: (data) => {
+      this.noticias = data;
+      this.cargandoNoticias = false;
+    },
+    error: (err) => {
+      console.error('Error al obtener noticias:', err);
+      this.errorNoticias = true;
+      this.cargandoNoticias = false;
+    }
+  });
+}
+
+  onRefresh(event: any) {
+    this.apiService.getTasaCambio().subscribe({
+      next: (data) => {
+        this.tasaCambio = data;
+        this.errorTasa = false;
+        event.target.complete();
+      },
+      error: (err) => {
+        console.error('Error al refrescar tasa de cambio:', err);
+         this.errorTasa = true;
+        event.target.complete();
+      }
+    });
   }
 
   // TU FUNCIÓN DE NUEVO PRÉSTAMO
@@ -49,7 +108,6 @@ export class Tab1Page implements OnInit {
           detalle: `Plazo: ${nuevo.plazo} meses | Cédula: ${nuevo.cedula}`
         };
 
-        // Metemos el préstamo al inicio del array visual
         this.listaPrestamos.unshift(formatoNuevoPrestamo);
 
         // 5. Guardamos la nueva lista completa en el Storage de Ionic
@@ -84,14 +142,14 @@ export class Tab1Page implements OnInit {
     }
   }
 
-  // FUNCIONES DE ANDRY
-  async onRefresh(event: any) {
-    await this.cargarPrestamosDeIonic();
-    event.target.complete();
-  }
-
-  onAccionRapida(tipoAccion: string) {
-    console.log('Acción rápida:', tipoAccion);
+  // ===== BOTONES SIN PANTALLA PROPIA TODAVÍA =====
+  async onAccionRapida(accion: string) {
+    const alert = await this.alertCtrl.create({
+      header: 'Próximamente',
+      message: 'Esta función estará disponible pronto.',
+      buttons: ['Entendido']
+    });
+    await alert.present();
   }
 }
 

@@ -54,7 +54,7 @@
       <div class="loan-top">
         <div>
           <p class="label">PRÉSTAMO ACTIVO</p>
-          <h2>RD$150,000.00</h2>
+          <h2>RD$500,000.00</h2>
           <p class="status"><span class="dot"></span> Al día</p>
         </div>
         <div class="icon-badge">
@@ -73,7 +73,7 @@
       <div class="next-payment">
         <div>
           <p class="label">Próxima cuota</p>
-          <p class="amount">RD$4,250.00</p>
+          <p class="amount">RD$14,000.00</p>
         </div>
         <div class="due">
           <p class="label">Vence</p>
@@ -117,28 +117,30 @@
     </ion-row>
   </ion-grid>
 
-  <!-- Resumen: total pagado / saldo restante -->
-  <ion-grid class="summary-grid">
-    <ion-row>
-      <ion-col size="6">
-        <div class="summary-card">
-          <p class="label">Total pagado</p>
-          <p class="value green">RD$51,000.00</p>
-          <p class="sub">12 cuotas</p>
-        </div>
-      </ion-col>
-      <ion-col size="6">
-        <div class="summary-card">
-          <p class="label">Saldo restante</p>
-          <p class="value blue">RD$99,000.00</p>
-          <p class="sub">24 cuotas</p>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <!-- Area de Noticias -->
+  <h3 class="section-title">Noticias</h3>
+
+  <div *ngIf="cargandoNoticias" class="news-loading">
+    <ion-spinner name="crescent"></ion-spinner>
+    <span>Cargando noticias...</span>
+  </div>
+
+  <div *ngIf="!cargandoNoticias && errorNoticias" class="news-error">
+    <ion-icon name="alert-circle-outline"></ion-icon>
+    <span>No se pudieron cargar las noticias.</span>
+  </div>
+
+  <div *ngIf="!cargandoNoticias && !errorNoticias" class="news-list">
+    <ion-card class="news-card" *ngFor="let noticia of noticias">
+      <ion-card-content>
+        <h4>{{ noticia.titulo }}</h4>
+        <p>{{ noticia.resumen }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
 
   <div class="movements-header">
-  <h2 class="section-title">Últimos Préstamos</h2>
+  <h2 class="section-title">Últimos Movimientos</h2>
 </div>
 
 <ion-list class="movements-list">

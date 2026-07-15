@@ -31,3 +31,8 @@ export interface TasaCambio {
   dop: number;
   eur: number;
 }
+export interface Noticia {
+  id: number;
+  titulo: string;
+ resumen: string;
+}

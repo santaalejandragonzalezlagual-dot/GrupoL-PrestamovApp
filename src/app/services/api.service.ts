@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
-import { Usuario, TasaCambio } from '../models/prestamo.model';
+import { Usuario, TasaCambio, Noticia } from '../models/prestamo.model';
 
 @Injectable({
   providedIn: 'root',
@@ -43,6 +43,20 @@ export class ApiService {
           dop: respuesta.usd.dop,
           eur: respuesta.usd.eur
         }))
+      );
+  }
+  // ===== NOTICIAS (API REST publica con jsonplaceholder) =====
+  getNoticias(): Observable<Noticia[]> {
+    return this.http
+      .get<any[]>('https://jsonplaceholder.typicode.com/posts?_limit=2')
+      .pipe(
+        map(respuesta =>
+          respuesta.map(post => ({
+            id: post.id,
+            titulo: post.title,
+            resumen: post.body
+          }))
+        )
       );
   }
 }
