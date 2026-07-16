@@ -24,6 +24,10 @@ export class Tab1Page implements OnInit {
   noticias: any[] = [];
   cargandoNoticias: boolean = true;
   errorNoticias: boolean = false;
+
+  // ===== VIDEO ILUSTRATIVO =====
+  videoUrl = 'assets/videos/economia.mp4';
+  mostrandoVideo = false;
  
   constructor(
     private modalCtrl: ModalController,
@@ -140,6 +144,11 @@ cargarNoticias() {
         { nombre: 'Préstamo de Bienvenida', monto: 15000, detalle: 'Aprobado automáticamente' }
       ];
     }
+  }
+
+// ===== VIDEO =====
+  reproducirVideo() {
+    this.mostrandoVideo = true;
   }
 
   // ===== BOTONES SIN PANTALLA PROPIA TODAVÍA =====
