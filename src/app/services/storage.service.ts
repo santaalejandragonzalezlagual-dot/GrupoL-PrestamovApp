@@ -7,8 +7,8 @@ import { Storage } from '@ionic/storage-angular';
 export class StorageService {
   private _storage: Storage | null = null;
 
-  // Quitamos la llamada directa del constructor para evitar conflictos de tiempo
-  constructor(private storage: Storage) {}
+  //  para evitar conflictos de tiempo
+  constructor(private storage: Storage) { }
 
   async initStorage() {
     if (this._storage) return; // Si ya está encendida, no hace nada

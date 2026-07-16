@@ -11,12 +11,12 @@ import { NuevoPrestamoPage } from '../pages/nuevo-prestamo/nuevo-prestamo.page';
 })
 export class Tab1Page implements OnInit {
 
-  // VARIABLES DE ANDRY (TASA DE CAMBIO)
+  // VARIABLES TASA DE CAMBIO
   cargandoTasa: boolean = false;
   errorTasa: boolean = false;
   tasaCambio: any = { dop: 59.50, fecha: 'Hoy' };
 
-  // TU LISTA DE PRÉSTAMOS
+  //LISTA DE PRÉSTAMOS
   listaPrestamos: any[] = [];
 
   // 2. Inyectamos "Storage" en el constructor junto al controlador de modales
@@ -60,12 +60,13 @@ export class Tab1Page implements OnInit {
     return await modal.present();
   }
 
-  // ===== NUEVAS FUNCIONES ASÍNCRONAS CON IONIC STORAGE =====
+  //NUEVAS FUNCIONES ASÍNCRONAS CON IONIC STORAGE 
 
   // Guarda los datos usando la clave 'mis_prestamos'
   async guardarPrestamosEnIonic() {
-    // A diferencia de localStorage, aquí no hace falta usar JSON.stringify()
+
     // Ionic Storage guarda objetos y arreglos directamente de forma nativa
+
     await this.storage.set('mis_prestamos', this.listaPrestamos);
     console.log('¡Préstamos asegurados con el Storage oficial de Ionic!');
   }
@@ -84,7 +85,7 @@ export class Tab1Page implements OnInit {
     }
   }
 
-  // FUNCIONES DE ANDRY
+  
   async onRefresh(event: any) {
     await this.cargarPrestamosDeIonic();
     event.target.complete();

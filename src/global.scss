@@ -36,12 +36,9 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
-/* ==========================================================================
-   DISEÑO MODERNO PARA LA BARRA DE PESTAÑAS (TABS) - GRUPO L
-   ========================================================================== */
 
 ion-tab-bar {
-  // Posición flotante con margen inferior para simular tarjetas de aplicaciones premium
+  // Posición flotante con margen inferior
   position: absolute;
   bottom: 0px;
   left: 0px;

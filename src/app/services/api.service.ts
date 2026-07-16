@@ -33,7 +33,7 @@ export class ApiService {
     );
   }
 
-  // ===== TASA DE CAMBIO (API REST real) =====
+  // TASA DE CAMBIO (API REST real)
   getTasaCambio(): Observable<TasaCambio> {
     return this.http
       .get<any>('https://latest.currency-api.pages.dev/v1/currencies/usd.json')

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common'; // <-- Verifica que esté importado
+import { CommonModule } from '@angular/common'; 
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Tab3Page } from './tab3.page';
@@ -7,7 +7,7 @@ import { Tab3PageRoutingModule } from './tab3-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule, // <-- Debe estar listado aquí
+    CommonModule, 
     FormsModule,
     IonicModule,
     Tab3PageRoutingModule

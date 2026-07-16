@@ -28,21 +28,21 @@ export class NuevoPrestamoPage implements OnInit {
   }
 
   guardarPrestamo() {
-  // 1. Limpiamos espacios en blanco para evitar trampas (como escribir solo espacios)
+  // 1. Limpiamos espacios en blanco para evitar errores
   const nombreLimpio = this.prestamo.nombre?.trim();
   const cedulaLimpia = this.prestamo.cedula?.trim();
 
-  // 2. Validamos de forma estricta que los campos obligatorios tengan información
+  // 2. Validamos de forma que los campos obligatorios tengan información
   if (!nombreLimpio || !cedulaLimpia || !this.prestamo.monto || !this.prestamo.plazo) {
-    alert('❌ Error: El Nombre, la Cédula, el Monto y el Plazo son obligatorios.');
-    return; // 🛑 ¡Freno de mano! Detiene la función aquí y NO guarda nada.
+    alert(' Error: El Nombre, la Cédula, el Monto y el Plazo son obligatorios.');
+    return; // Detiene la función aquí y no guarda nada.
   }
-  
+
 
   // 3. Validamos que el monto y el plazo sean números válidos mayores a cero
   if (this.prestamo.monto <= 0 || this.prestamo.plazo <= 0) {
     alert('❌ Error: El monto y el plazo deben ser mayores a cero.');
-    return; // 🛑 Detiene la función si ponen números negativos o cero.
+    return; // Detiene la función si ponen números negativos o cero.
   }
 
   // 4. Si pasa todas las pruebas anteriores, entonces SÍ se guarda con éxito
