@@ -1,0 +1,144 @@
+<ion-content [fullscreen]="true">
+
+  <!-- Header azul con datos del usuario -->
+  <div class="profile-header">
+    <div class="profile-info">
+      <h1>{{ usuario?.nombre }}</h1>
+      <p class="email">{{ usuario?.email }}</p>
+      <p class="verified"><span class="dot"></span> Cliente verificado</p>
+    </div>
+   <div class="avatar-large" (click)="cambiarFoto()">
+  <img *ngIf="fotoPerfil" [src]="fotoPerfil" />
+  <span *ngIf="!fotoPerfil">{{ usuario?.iniciales }}</span>
+  <div class="camera-badge">
+    <ion-icon name="camera-outline"></ion-icon>
+  </div>
+</div>
+  </div>
+
+  <!-- Sucursales cercanas -->
+  <div class="branches-header">
+    <h3 class="section-title">Sucursales cercanas</h3>
+    <span class="badge-count" *ngIf="!cargandoMapa && !errorUbicacion">{{ sucursales.length }} sucursales</span>
+  </div>
+
+  <div class="map-wrapper">
+    <div *ngIf="cargandoMapa" class="map-loading">
+      <ion-spinner name="crescent"></ion-spinner>
+      <span>Obteniendo tu ubicación...</span>
+    </div>
+
+    <div *ngIf="!cargandoMapa && errorUbicacion" class="map-error">
+      <ion-icon name="alert-circle-outline"></ion-icon>
+      <span>{{ errorUbicacion }}</span>
+      <ion-button size="small" fill="outline" (click)="cargarMapa()">Reintentar</ion-button>
+    </div>
+
+    <div id="mapaSucursales" class="leaflet-map" *ngIf="!cargandoMapa && !errorUbicacion"></div>
+  </div>
+
+  <ion-list *ngIf="!cargandoMapa && !errorUbicacion" class="branches-list" lines="none">
+    <ion-item *ngFor="let s of sucursales.slice(0, 2)">
+      <div class="item-icon blue" slot="start">
+        <ion-icon name="location-outline"></ion-icon>
+      </div>
+      <ion-label>
+        <h4>{{ s.nombre }}</h4>
+        <p>{{ s.distanciaKm }} km · Abierto</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Estadísticas -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <h2>{{ listaPrestamos.length }}</h2>
+      <p>Préstamos</p>
+    </div>
+    <div class="stat-card">
+      <h2>2 años</h2>
+      <p>Historial</p>
+    </div>
+    <div class="stat-card">
+      <h2>820</h2>
+      <p>Score</p>
+    </div>
+  </div>
+
+  <!-- Cuenta -->
+  <h3 class="section-title">Cuenta</h3>
+  <ion-list class="profile-list" lines="none">
+    <ion-item button (click)="proximamente()">
+      <div class="item-icon blue" slot="start">
+        <ion-icon name="person-outline"></ion-icon>
+      </div>
+      <ion-label>
+        <h4>Datos personales</h4>
+        <p>Editar perfil</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button (click)="proximamente()">
+      <div class="item-icon purple" slot="start">
+        <ion-icon name="shield-checkmark-outline"></ion-icon>
+      </div>
+      <ion-label>
+        <h4>Seguridad</h4>
+        <p>Contraseña y biometría</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button (click)="proximamente()">
+      <div class="item-icon orange" slot="start">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </div>
+      <ion-label>
+        <h4>Notificaciones</h4>
+        <p>Configurar alertas</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Soporte -->
+  <h3 class="section-title">Soporte</h3>
+  <ion-list class="profile-list" lines="none">
+    <ion-item button href="tel:8097240266">
+      <div class="item-icon green" slot="start">
+        <ion-icon name="call-outline"></ion-icon>
+      </div>
+      <ion-label>
+        <h4>Llamar al banco</h4>
+        <p>809-724-0266</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button href="mailto:soporte@uapa.edu.do">
+      <div class="item-icon blue" slot="start">
+        <ion-icon name="mail-outline"></ion-icon>
+      </div>
+      <ion-label>
+        <h4>Correo de soporte</h4>
+        <p>soporte@uapa.edu.do</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button (click)="proximamente()">
+      <div class="item-icon orange" slot="start">
+        <ion-icon name="star-outline"></ion-icon>
+      </div>
+      <ion-label>
+        <h4>Calificar la app</h4>
+        <p>Tu opinión importa</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Cerrar sesión -->
+  <div class="logout-wrapper">
+    <ion-button expand="block" fill="outline" color="danger" (click)="cerrarSesion()">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      Cerrar sesión
+    </ion-button>
+  </div>
+
+</ion-content>

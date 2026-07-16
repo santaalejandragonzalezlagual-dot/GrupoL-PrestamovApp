@@ -16,6 +16,14 @@ import {
   cashOutline,
   alertCircleOutline,
   calculatorOutline,
+  shieldCheckmarkOutline, 
+  callOutline, 
+  mailOutline, 
+  starOutline, 
+  logOutOutline,
+  cameraOutline, 
+  imagesOutline, 
+  closeOutline
 } from 'ionicons/icons';
 
 @Component({
@@ -41,7 +49,15 @@ export class AppComponent {
       'time-outline': timeOutline,
       'cash-outline': cashOutline,
       'alert-circle-outline': alertCircleOutline,
-       'calculator-outline': calculatorOutline,
+      'calculator-outline': calculatorOutline,
+      'shield-checkmark-outline': shieldCheckmarkOutline,
+      'call-outline': callOutline,
+      'mail-outline': mailOutline,
+      'star-outline': starOutline,
+      'log-out-outline': logOutOutline,
+      'camera-outline': cameraOutline,
+      'images-outline': imagesOutline,
+       'close-outline': closeOutline,
     });
   }
 }
