@@ -24,7 +24,8 @@ import {
   cameraOutline, 
   imagesOutline, 
   closeOutline,
-  cloudOfflineOutline
+  cloudOfflineOutline,
+  play
 } from 'ionicons/icons';
 import { NetworkService } from './services/network.service';
 
@@ -63,6 +64,7 @@ export class AppComponent implements OnInit {
       'camera-outline': cameraOutline,
       'images-outline': imagesOutline,
        'close-outline': closeOutline,
+       'play': play,
     });
   }
 

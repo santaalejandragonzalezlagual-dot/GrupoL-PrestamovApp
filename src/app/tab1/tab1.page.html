@@ -139,6 +139,30 @@
     </ion-card>
   </div>
 
+<!-- Video educativo -->
+  <h3 class="section-title">Video educativo</h3>
+
+  <div class="video-card">
+    <div class="video-thumb" *ngIf="!mostrandoVideo" (click)="reproducirVideo()">
+      <div class="video-badge">NUEVO</div>
+      <div class="play-button">
+        <ion-icon name="play"></ion-icon>
+      </div>
+      <div class="video-info">
+        <h4>Cómo funciona un préstamo</h4>
+        <p>Tips financieros para entender tu solicitud</p>
+      </div>
+    </div>
+
+    <video
+      *ngIf="mostrandoVideo"
+      [src]="videoUrl"
+      controls
+      autoplay
+      class="video-player">
+    </video>
+  </div>
+
   <div class="movements-header">
   <h2 class="section-title">Últimos Movimientos</h2>
 </div>
