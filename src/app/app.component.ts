@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { addIcons } from 'ionicons';
 import {
   notificationsOutline,
@@ -23,8 +23,10 @@ import {
   logOutOutline,
   cameraOutline, 
   imagesOutline, 
-  closeOutline
+  closeOutline,
+  cloudOfflineOutline
 } from 'ionicons/icons';
+import { NetworkService } from './services/network.service';
 
 @Component({
   selector: 'app-root',
@@ -32,8 +34,11 @@ import {
   styleUrls: ['app.component.scss'],
   standalone: false,
 })
-export class AppComponent {
-  constructor() {
+export class AppComponent implements OnInit {
+
+  isOnline = true;
+
+  constructor(private networkService: NetworkService) {
     addIcons({
       'notifications-outline': notificationsOutline,
       'card-outline': cardOutline,
@@ -58,6 +63,12 @@ export class AppComponent {
       'camera-outline': cameraOutline,
       'images-outline': imagesOutline,
        'close-outline': closeOutline,
+    });
+  }
+
+  ngOnInit() {
+    this.networkService.status$.subscribe(status => {
+      this.isOnline = status;
     });
   }
 }

@@ -173,6 +173,19 @@ export class UsuarioPage implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+async verEquipo() {
+    const alert = await this.alertCtrl.create({
+      header: 'Equipo de desarrollo',
+      message:
+        'Andry Zarzuela Mora — 100055418\n\n' +
+        'Santa A González Lagual — 100031546\n\n' +
+        'Juan de Jesús Germán R — 100073037\n\n' +
+        'Abrahan Pineda Sánchez — 100025457',
+      buttons: ['Cerrar']
+    });
+    await alert.present();
+  }
+
   async proximamente() {
     const alert = await this.alertCtrl.create({
       header: 'Próximamente',
