@@ -20,6 +20,7 @@ Tecnologías utilizadas:
 - Git
 - GitHub
 -Visual Studio Code
+<img width="1920" height="1080" alt="Presentación Mockup Aplicación Móvil Elegante Azul" src="https://github.com/user-attachments/assets/0d037327-4a0c-451f-b248-37d02d27570e" />
 
 Estructura de ramas:
 | Rama | Descripción |
